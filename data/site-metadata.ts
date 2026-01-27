@@ -10,7 +10,7 @@ export const SITE_METADATA = {
   theme: 'system', // system, dark or light
   siteUrl: 'https://www.leohuynh.dev',
   siteRepo: 'https://github.com/hta218/leohuynh.dev',
-  siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.jpg`,
+  siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.jpeg`,
   email: 'contact@leohuynh.dev',
   github: 'https://github.com/hta218',
@@ -20,6 +20,7 @@ export const SITE_METADATA = {
   linkedin: 'https://www.linkedin.com/in/hta218',
   threads: 'https://www.threads.net/hta218_',
   instagram: 'https://www.instagram.com/hta218_',
+  lastfm: 'https://www.last.fm/user/logu636',
   goodreadsBookshelfUrl:
     'https://www.goodreads.com/review/list/179720035-leo-huynh',
   goodreadsFeedUrl: 'https://www.goodreads.com/review/list_rss/179720035',

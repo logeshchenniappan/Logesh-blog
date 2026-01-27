@@ -86,6 +86,10 @@ module.exports = () => {
           protocol: 'https',
           hostname: 'avatars.githubusercontent.com',
         },
+        {
+          protocol: 'https',
+          hostname: 'lastfm.freetls.fastly.net', // Last FM album covers
+        },
       ],
       unoptimized,
     },

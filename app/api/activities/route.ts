@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { getRecentlyPlayed } from '~/app/api/spotify/spotify'
+import { getRecentlyPlayed } from '~/app/api/lastfm/lastfm'
 import { SITE_METADATA } from '~/data/site-metadata'
 import { getCurrentlyReading, getLastWatchedMovie } from '~/db/queries'
 import { fetchGithubUserActivities } from '~/utils/github'

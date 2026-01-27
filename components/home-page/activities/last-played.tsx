@@ -5,6 +5,7 @@ import { GrowingUnderline } from '~/components/ui/growing-underline'
 import { Image } from '~/components/ui/image'
 import { Link } from '~/components/ui/link'
 import { MusicWaves } from '~/components/ui/music-waves'
+import { SITE_METADATA } from '~/data/site-metadata'
 import { useNowPlaying } from '~/hooks/use-now-playing'
 import type { RecentlyPlayedData } from '~/types/data'
 import { getTimeAgo } from '~/utils/misc'
@@ -32,7 +33,7 @@ export function LastPlayed({
             src={song.albumImageUrl}
           />
           <div className="absolute -right-1 -bottom-1 flex items-center justify-center rounded-full bg-white p-1.5 shadow-md">
-            <Music className="h-4 w-4 text-green-600" />
+            <Music className="h-4 w-4 text-red-600" />
           </div>
         </div>
         <div className="flex grow items-center justify-between gap-4">
@@ -50,11 +51,11 @@ export function LastPlayed({
             </div>
           </div>
           <div className="hidden items-center gap-3 md:flex">
-            <span className="ml-4 flex-shrink-0 rounded-full bg-green-100 px-2.5 py-0.5 text-sm text-green-700 dark:bg-green-900 dark:text-green-300">
+            <span className="ml-4 flex-shrink-0 rounded-full bg-red-100 px-2.5 py-0.5 text-sm text-red-700 dark:bg-red-900 dark:text-red-300">
               Playing
             </span>
             <Link
-              href="https://open.spotify.com/user/31uxi2mgkrjhj4agxmudr5cmfj7a"
+              href={SITE_METADATA.lastfm}
               className="rounded p-2 text-gray-700 transition-colors hover:bg-gray-200 dark:text-gray-300 dark:hover:bg-gray-700"
             >
               <ExternalLink className="h-4 w-4" />
@@ -82,7 +83,7 @@ export function LastPlayed({
           src={song.albumImageUrl}
         />
         <div className="absolute -right-1 -bottom-1 flex items-center justify-center rounded-full bg-white p-1.5 shadow-md">
-          <Music className="h-4 w-4 text-green-600" />
+          <Music className="h-4 w-4 text-red-600" />
         </div>
       </div>
       <div className="flex grow items-center justify-between gap-4">
@@ -106,7 +107,7 @@ export function LastPlayed({
             {getTimeAgo(song.playedAt)}
           </span>
           <Link
-            href="https://open.spotify.com/user/31uxi2mgkrjhj4agxmudr5cmfj7a"
+            href={SITE_METADATA.lastfm}
             className="rounded p-2 text-gray-700 transition-colors hover:bg-gray-200 dark:text-gray-300 dark:hover:bg-gray-700"
           >
             <ExternalLink className="h-4 w-4" />
