@@ -9,18 +9,19 @@ import { type TitleType, TitleTypeFilter } from './title-type-filter'
 
 const MOVIES_TITLE_TYPES: Record<TitleType, string> = {
   all: 'All',
-  movie: 'Movie',
-  'tv-series': 'TV Series',
+  movie: 'movie',
+  'tv-series': 'tvSeries',
 }
 
 export function MoviesList({ movies }: { movies: SelectMovie[] }) {
   let searchParams = useSearchParams()
-  let rate = (searchParams.get('rate') as RateType) || '10'
+  let rate = (searchParams.get('rate') as RateType) || 'all'
   let type = (searchParams.get('type') as TitleType) || 'all'
 
   let displayMovies = movies
     .filter((movie) => {
       if (type === 'all' || MOVIES_TITLE_TYPES[type] === movie.titleType) {
+        if (rate === 'all') return true
         if (rate === '<=6') {
           return Number(movie.yourRating) <= 6
         }

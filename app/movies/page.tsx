@@ -30,22 +30,19 @@ export default async function MoviesPage() {
               next favorite film!
             </p>
             <p className="mt-3 italic">
-              *Data is exported from my{' '}
-              <Link
-                href={SITE_METADATA.imdbRatingsList}
-                className="font-medium"
-              >
-                <GrowingUnderline data-umami-event="goodreads-feed" active>
-                  IMDB ratings list
+              *Data is automatically synced from my{' '}
+              <Link href={SITE_METADATA.letterboxd} className="font-medium">
+                <GrowingUnderline data-umami-event="letterboxd-feed" active>
+                  Letterboxd profile
                 </GrowingUnderline>
               </Link>
-              , with extra details pulled in from the{' '}
+              , with extra details enriched from the{' '}
               <Link href="https://www.omdbapi.com/" className="font-medium">
-                <GrowingUnderline data-umami-event="goodreads-feed" active>
+                <GrowingUnderline data-umami-event="omdb-api" active>
                   OMDB API
                 </GrowingUnderline>
               </Link>{' '}
-              for a more complete look at each movie.
+              to provide a rich view of each film.
             </p>
           </>
         }

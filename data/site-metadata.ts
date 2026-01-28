@@ -21,9 +21,9 @@ export const SITE_METADATA = {
   threads: 'https://www.threads.net/hta218_',
   instagram: 'https://www.instagram.com/hta218_',
   lastfm: 'https://www.last.fm/user/logu636',
-  goodreadsBookshelfUrl:
-    'https://www.goodreads.com/review/list/179720035-leo-huynh',
-  goodreadsFeedUrl: 'https://www.goodreads.com/review/list_rss/179720035',
+  letterboxd: 'https://letterboxd.com/logeshc',
+  goodreadsBookshelfUrl: 'https://www.goodreads.com/user/show/74977348-logesh',
+  goodreadsFeedUrl: 'https://www.goodreads.com/review/list_rss/74977348',
   imdbRatingsList: 'https://www.imdb.com/user/ur154483197/ratings/?view=grid',
   analytics: {
     umamiAnalytics: {

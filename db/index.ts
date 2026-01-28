@@ -1,6 +1,7 @@
 import { config } from 'dotenv'
 import { drizzle } from 'drizzle-orm/postgres-js'
 
+config({ path: '.env.local' })
 config({ path: '.env' })
 
 let dbInstance: ReturnType<typeof drizzle> | null = null

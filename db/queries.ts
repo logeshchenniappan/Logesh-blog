@@ -68,6 +68,10 @@ export async function upsertBooks(
   return result
 }
 
+export async function clearBooks() {
+  return await db.delete(booksTable)
+}
+
 export async function upsertManyMovies(
   moviesData: InsertMovie[],
 ): Promise<SelectMovie[]> {

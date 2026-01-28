@@ -3,7 +3,7 @@ import path from 'node:path'
 import csv from 'csv-parser'
 import Parser from 'rss-parser'
 import { SITE_METADATA } from '~/data/site-metadata'
-import { upsertBooks, upsertManyMovies } from '~/db/queries'
+import { clearBooks, upsertBooks, upsertManyMovies } from '~/db/queries'
 import {
   type InsertBook,
   type InsertMovie,
@@ -16,6 +16,14 @@ import type {
   ImdbMovie,
   OmdbMovie,
 } from '~/types/data'
+
+interface LetterboxdItem {
+  title: string
+  year: string
+  rating: string
+  link: string
+  pubDate: string
+}
 
 let parser = new Parser<{ [key: string]: unknown }, GoodreadsBook>({
   customFields: {
@@ -46,9 +54,21 @@ let parser = new Parser<{ [key: string]: unknown }, GoodreadsBook>({
   },
 })
 
+let letterboxdParser = new Parser({
+  customFields: {
+    item: [
+      ['letterboxd:filmTitle', 'title'],
+      ['letterboxd:filmYear', 'year'],
+      ['letterboxd:memberRating', 'rating'],
+    ],
+  },
+})
+
 export async function seedBooksUsingRssFeed() {
   if (SITE_METADATA.goodreadsFeedUrl) {
     try {
+      console.log('Clearing old books data...')
+      await clearBooks()
       console.log('Parsing Goodreads RSS feed...')
       let data = await parser.parseURL(SITE_METADATA.goodreadsFeedUrl)
 
@@ -382,10 +402,100 @@ async function seedMovies() {
   }
 }
 
+export async function seedMoviesByLetterboxd() {
+  const username =
+    process.env.LETTERBOXD_USERNAME ||
+    SITE_METADATA.letterboxd?.split('/').pop()
+  if (!username) {
+    console.log('🎬 No Letterboxd username provided.')
+    return
+  }
+  const feedUrl = `https://letterboxd.com/${username}/rss/`
+  console.log(`🎬 Fetching Letterboxd RSS feed for ${username}...`)
+
+  try {
+    const data = await letterboxdParser.parseURL(feedUrl)
+    const movies: InsertMovie[] = []
+
+    for (const item of data.items as LetterboxdItem[]) {
+      const title = item.title
+      const year = item.year
+      const rating = Number.parseFloat(item.rating) * 2 // Convert 5-star to 10-star scale
+
+      console.log(`🎬 Fetching OMDB metadata for "${title} (${year})"...`)
+      try {
+        const res = await fetch(
+          `https://www.omdbapi.com/?apikey=${process.env.OMDB_API_KEY}&t=${encodeURIComponent(title)}&y=${year}&plot=full`,
+        )
+        const omdbMovie: OmdbMovie = await res.json()
+
+        if (omdbMovie.Response === 'True') {
+          movies.push({
+            id: omdbMovie.imdbID,
+            yourRating: rating.toString(),
+            dateRated: new Date(item.pubDate).toISOString(),
+            title: omdbMovie.Title,
+            originalTitle: omdbMovie.Title,
+            url: item.link,
+            titleType: omdbMovie.Type === 'series' ? 'tvSeries' : 'movie',
+            imdbRating:
+              omdbMovie.imdbRating !== 'N/A' ? omdbMovie.imdbRating : '0',
+            runtime:
+              omdbMovie.Runtime !== 'N/A'
+                ? omdbMovie.Runtime.split(' ')[0]
+                : '0',
+            year: omdbMovie.Year,
+            genres: omdbMovie.Genre,
+            numVotes:
+              omdbMovie.imdbVotes !== 'N/A'
+                ? omdbMovie.imdbVotes.replace(/,/g, '')
+                : '0',
+            releaseDate: omdbMovie.Released !== 'N/A' ? omdbMovie.Released : '',
+            directors: omdbMovie.Director,
+            actors: omdbMovie.Actors,
+            plot: omdbMovie.Plot,
+            poster: omdbMovie.Poster,
+            language: omdbMovie.Language,
+            country: omdbMovie.Country,
+            awards: omdbMovie.Awards,
+            boxOffice: omdbMovie.BoxOffice || '',
+            totalSeasons: omdbMovie.totalSeasons || '',
+            ratings:
+              omdbMovie.Ratings?.map((r) => ({
+                source: r.Source,
+                value: r.Value,
+              })) || [],
+            updatedAt: new Date(),
+          })
+        } else {
+          console.warn(`⚠️ OMDB could not find "${title} (${year})".`)
+        }
+      } catch (error) {
+        console.error(`❌ Error fetching OMDB data for "${title}":`, error)
+      }
+    }
+
+    if (movies.length > 0) {
+      // Deduplicate movies by ID to prevent ON CONFLICT errors within the same batch
+      const uniqueMoviesMap = new Map<string, InsertMovie>()
+      for (const movie of movies) {
+        uniqueMoviesMap.set(movie.id, movie)
+      }
+      const finalMovies = Array.from(uniqueMoviesMap.values())
+
+      const savedMovies = await upsertManyMovies(finalMovies)
+      console.log(
+        `🎬 Successfully synced ${savedMovies.length} movies from Letterboxd.`,
+      )
+    }
+  } catch (error) {
+    console.error('❌ Error fetching Letterboxd RSS feed:', error)
+  }
+}
+
 export async function seed() {
-  // await seedMovies()
+  await seedMoviesByLetterboxd()
   await seedBooksUsingRssFeed()
-  // await seedBooksByParsingCSV()
 }
 
 seed()

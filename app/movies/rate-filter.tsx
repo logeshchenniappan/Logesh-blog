@@ -21,6 +21,12 @@ export const RATES: {
   emoji: string
 }[] = [
   {
+    label: 'All',
+    description: 'all watched',
+    value: 'all',
+    emoji: 'star',
+  },
+  {
     label: '10',
     description: 'must watch',
     value: '10',
@@ -42,7 +48,7 @@ export const RATES: {
   },
 ]
 
-export type RateType = '10' | '9' | '8' | '7' | '<=6'
+export type RateType = 'all' | '10' | '9' | '8' | '7' | '<=6'
 
 export function RateFilter({
   rate,
@@ -59,7 +65,10 @@ export function RateFilter({
           data-umami-event="movies-rate-filter"
         >
           <span>
-            {label}/10 <span className="hidden md:inline">stars</span>
+            {label === 'All' ? 'All' : `${label}/10`}{' '}
+            <span className="hidden md:inline">
+              {label === 'All' ? 'ratings' : 'stars'}
+            </span>
           </span>
           <ChevronDown strokeWidth={1.5} size={20} />
         </MenuButton>
