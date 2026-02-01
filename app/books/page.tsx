@@ -8,12 +8,16 @@ import { PageHeader } from '~/components/ui/page-header'
 import { SITE_METADATA } from '~/data/site-metadata'
 import { getAllBooks } from '~/db/queries'
 import type { SelectBook } from '~/db/schema'
+import { getBooksFromJson } from '~/utils/fallback-books-movies'
 import { BooksList } from './books-list'
 
 export let metadata = genPageMetadata({ title: 'My bookshelf' })
 
 export default async function BooksPage() {
   let books = await getAllBooks().catch(() => [] as SelectBook[])
+  if (books.length === 0) {
+    books = getBooksFromJson()
+  }
 
   return (
     <Container className="pt-4 lg:pt-12">

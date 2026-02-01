@@ -42,32 +42,22 @@ export function ProfileCardInfo() {
   return (
     <div className="hidden py-4 md:block md:px-5">
       <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
-        Tuan Anh (Leo) Huynh
+        {SITE_METADATA.author}
       </h3>
       <h5 className="py-2 text-gray-500 dark:text-gray-400">
-        Learner | Builder
+        {SITE_METADATA.role}
       </h5>
       <div className="mt-4 mb-2 space-y-4">
         <div className="flex items-center text-gray-700 dark:text-gray-200">
           <BriefcaseBusiness strokeWidth={1.5} size={20} />
-          <p className="flex items-center px-2">
-            CTO & Co-Founder @{' '}
-            <a
-              target="_blank"
-              href="https://weaverse.io"
-              rel="noreferrer"
-              className="underline-offset-4 hover:underline"
-            >
-              Weaverse
-            </a>
-          </p>
+          <p className="flex items-center px-2">{SITE_METADATA.role}</p>
         </div>
         <div className="flex items-center text-gray-700 dark:text-gray-200">
           <MapPin strokeWidth={1.5} size={20} />
           <p className="px-2">
-            [::1]:443 - Ha Noi,
+            {SITE_METADATA.location}
             <span className="absolute ml-1 inline-flex pt-px">
-              <Twemoji emoji="flag-vietnam" />
+              <Twemoji emoji="flag-india" />
             </span>
           </p>
         </div>

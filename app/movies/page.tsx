@@ -7,12 +7,16 @@ import { PageHeader } from '~/components/ui/page-header'
 import { SITE_METADATA } from '~/data/site-metadata'
 import { getAllMovies } from '~/db/queries'
 import type { SelectMovie } from '~/db/schema'
+import { getMoviesFromJson } from '~/utils/fallback-books-movies'
 import { MoviesList } from './movies-list'
 
 export let metadata = genPageMetadata({ title: 'My movies list' })
 
 export default async function MoviesPage() {
   let movies = await getAllMovies().catch(() => [] as SelectMovie[])
+  if (movies.length === 0) {
+    movies = getMoviesFromJson()
+  }
 
   return (
     <Container className="pt-4 lg:pt-12">

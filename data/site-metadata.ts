@@ -1,40 +1,40 @@
 export const SITE_METADATA = {
-  title: `Leo's dev blog – stories, insights, and ideas`,
-  author: 'Leo Huynh',
-  headerTitle: `Leo's dev blog`,
+  title: 'Logesh C – portfolio & blog',
+  author: 'Logesh C',
+  headerTitle: 'Logesh C',
   description:
-    'A personal space on the cloud where I document my programming journey, sharing lessons, insights, and resources for fellow developers.',
+    'MBA graduate skilled in customer relationship management, digital transformation, and data-driven operations. Portfolio and blog.',
   language: 'en-us',
   locale: 'en-US',
   stickyNav: true,
   theme: 'system', // system, dark or light
-  siteUrl: 'https://www.leohuynh.dev',
-  siteRepo: 'https://github.com/hta218/leohuynh.dev',
+  siteUrl: 'https://logeshc.com',
+  siteRepo: 'https://github.com/yourusername/logesh-blog', // TODO: your repo URL after you push
+  refParam: 'logeshc.com',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.jpeg`,
-  email: 'contact@leohuynh.dev',
-  github: 'https://github.com/hta218',
-  x: 'https://x.com/hta218_',
-  facebook: 'https://facebook.com/hta218',
-  youtube: 'https://www.youtube.com/@hta218_',
-  linkedin: 'https://www.linkedin.com/in/hta218',
-  threads: 'https://www.threads.net/hta218_',
-  instagram: 'https://www.instagram.com/hta218_',
-  lastfm: 'https://www.last.fm/user/logu636',
-  letterboxd: 'https://letterboxd.com/logeshc',
-  goodreadsBookshelfUrl: 'https://www.goodreads.com/user/show/74977348-logesh',
-  goodreadsFeedUrl: 'https://www.goodreads.com/review/list_rss/74977348',
-  imdbRatingsList: 'https://www.imdb.com/user/ur154483197/ratings/?view=grid',
+  email: 'logeshc17@gmail.com',
+  github: 'https://github.com/yourusername', // TODO: add if you have one
+  x: 'https://x.com/yourusername',
+  facebook: 'https://facebook.com/yourusername',
+  youtube: 'https://www.youtube.com/@yourusername',
+  linkedin: 'https://www.linkedin.com/in/logeshchenniappan/',
+  threads: 'https://www.threads.net/yourusername',
+  instagram: 'https://www.instagram.com/yourusername',
+  lastfm: 'https://www.last.fm/user/yourusername',
+  letterboxd: 'https://letterboxd.com/yourusername',
+  goodreadsBookshelfUrl: 'https://www.goodreads.com/user/show/YOUR_ID',
+  goodreadsFeedUrl: 'https://www.goodreads.com/review/list_rss/YOUR_ID',
+  imdbRatingsList: 'https://www.imdb.com/user/urYOUR_ID/ratings/?view=grid',
+  role: 'MBA | Business & Data Analytics',
+  location: 'India',
   analytics: {
     umamiAnalytics: {
       websiteId: process.env.NEXT_UMAMI_ID,
-      shareUrl:
-        'https://analytics.leohuynh.dev/share/c9ErglxqzY5CQJ8g/leohuynh.dev',
+      shareUrl: '',
     },
   },
   newsletter: {
-    // supports mailchimp, buttondown, convertkit, klaviyo, revue, emailoctopus, beehive
-    // Please add your .env file and modify it according to your selection
     provider: 'buttondown',
   },
   comments: {
@@ -43,8 +43,8 @@ export const SITE_METADATA = {
       repositoryId: process.env.NEXT_PUBLIC_GISCUS_REPOSITORY_ID || '',
       category: process.env.NEXT_PUBLIC_GISCUS_CATEGORY || '',
       categoryId: process.env.NEXT_PUBLIC_GISCUS_CATEGORY_ID || '',
-      mapping: 'title', // supported options: pathname, url, title
-      reactions: '1', // Emoji reactions: 1 = enable / 0 = disable
+      mapping: 'title',
+      reactions: '1',
       metadata: '0',
       theme: 'light',
       darkTheme: 'transparent_dark',
@@ -54,13 +54,12 @@ export const SITE_METADATA = {
   },
   search: {
     kbarConfigs: {
-      // path to load documents to search
       searchDocumentsPath: `${process.env.BASE_PATH || ''}/search.json`,
     },
   },
   support: {
-    buyMeACoffee: 'https://www.buymeacoffee.com/leohuynh.dev',
-    paypal: 'https://paypal.me/hta218?country.x=VN&locale.x=en_US',
-    kofi: 'https://ko-fi.com/hta218',
+    buyMeACoffee: 'https://www.buymeacoffee.com/yourusername',
+    paypal: 'https://paypal.me/yourusername',
+    kofi: 'https://ko-fi.com/yourusername',
   },
 }

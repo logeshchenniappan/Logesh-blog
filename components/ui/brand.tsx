@@ -1,4 +1,5 @@
 import { Link } from '~/components/ui/link'
+import { SITE_METADATA } from '~/data/site-metadata'
 import Bash from '~/icons/bash.svg'
 import Biome from '~/icons/biome.svg'
 import Claude from '~/icons/claude.svg'
@@ -291,7 +292,7 @@ export function Brand(props: {
   }
 
   return (
-    <Link href={`${url}?ref=leohuynh.dev`} className={className}>
+    <Link href={`${url}?ref=${SITE_METADATA.refParam}`} className={className}>
       <Icon className={iconClassName} fill="currentColor" />
     </Link>
   )

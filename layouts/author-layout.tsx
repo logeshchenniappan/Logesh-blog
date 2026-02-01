@@ -32,13 +32,13 @@ export function AuthorLayout({ children }: Props) {
                 Hi there <Twemoji emoji="waving-hand" />
               </h3>
               <p>
-                I'm <strong>Tuan Anh Huynh</strong> (alias <strong>Leo</strong>{' '}
-                at work), a software engineer from <strong>Vietnam</strong>. I
-                have a passion for all things <strong>Javascript</strong>. I
-                enjoy building eCommerce software and stuff related to web dev.
-                I work mainly with <strong>Typescript</strong>,{' '}
-                <strong>React</strong>, <strong>NodeJS</strong>,{' '}
-                <strong>Remix</strong>, and <strong>TailwindCSS</strong>.
+                I'm <strong>{SITE_METADATA.author}</strong>,{' '}
+                {SITE_METADATA.role} based in{' '}
+                <strong>{SITE_METADATA.location}</strong>. I focus on customer
+                relationship management, digital transformation, and data-driven
+                operations—using <strong>Excel</strong>,{' '}
+                <strong>Power BI</strong>, <strong>Tableau</strong>, and{' '}
+                <strong>Python</strong>.
               </p>
               {/* <p>
                 I would greatly appreciate any comments and thoughts on my posts{' '}
@@ -249,7 +249,7 @@ export function AuthorLayout({ children }: Props) {
               <p>
                 See my{' '}
                 <a
-                  href="https://github.com/hta218/leohuynh.dev"
+                  href={SITE_METADATA.siteRepo}
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -259,34 +259,12 @@ export function AuthorLayout({ children }: Props) {
               </p>
             </div>
             <div>
-              <h3>Legacy versions</h3>
+              <h3>Legacy or other versions</h3>
               <p>
-                I started this blog since 2019 and up until now it has 2 legacy
-                versions:
+                If you have older versions of this site (e.g. Gatsby, older
+                Next.js), add links here in{' '}
+                <code>layouts/author-layout.tsx</code>.
               </p>
-              <ul>
-                <li>
-                  <code>v1</code> built with <strong>NextJS v13</strong> using
-                  Page router:{' '}
-                  <a
-                    href="https://leohuynhdev-git-v1-leo-huynhs-projects.vercel.app/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    https://leohuynhdev-git-v1-leo-huynhs-projects.vercel.app/
-                  </a>
-                </li>
-                <li>
-                  <code>v0</code> built with <strong>Gatsby</strong>:{' '}
-                  <a
-                    href="https://leo-blog-legacy.vercel.app/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    https://leo-blog-legacy.vercel.app/
-                  </a>
-                </li>
-              </ul>
             </div>
             <div>
               <h3>Assets</h3>

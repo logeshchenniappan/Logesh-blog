@@ -7,202 +7,98 @@ import { Twemoji } from '~/components/ui/twemoji'
 
 const EXPERIENCES = [
   {
-    org: 'Weaverse.io',
-    url: 'https://weaverse.io',
-    logo: '/static/images/weaverse-logo.png',
-    start: 'Mar 2022',
-    end: 'Present',
-    title: 'CTO / Co.Founder / Software Engineer',
-    icon: 'briefcase',
-    event: 'career-weaverse',
-    details: () => {
-      return (
-        <ul className="[&>li]:my-2 [&>li]:pl-0">
-          <li>
-            Building a smart{' '}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://weaverse.io/demo"
-            >
-              Shopify Hydrogen Theme Customizer
-            </a>{' '}
-            to help creators build their own high quality and high performance
-            headless storefronts easily.
-          </li>
-        </ul>
-      )
-    },
-  },
-  {
-    org: 'FoxEcom',
-    url: 'https://foxecom.com/',
-    logo: '/static/images/foxecom-logo.jpeg',
-    start: 'May 2021',
-    end: 'Feb 2022',
-    title: 'Senior Software Engineer',
-    icon: 'man-technologist',
-    event: 'career-foxecom',
-    details: () => {
-      return (
-        <ul className="[&>li]:my-2 [&>li]:pl-0">
-          <li>
-            Built{' '}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://themeforest.net/item/minimog-the-high-converting-shopify-theme/33380968"
-            >
-              Minimog
-            </a>{' '}
-            - a multipurpose Shopify Theme (top best selling templates on Envato
-            Market)
-          </li>
-          <li>
-            Built{' '}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://apps.shopify.com/foxecom-boost-sales"
-            >
-              Fox Kit Shopify App
-            </a>{' '}
-            - The upsells and boost conversion tool built to support Minimog
-            theme
-          </li>
-        </ul>
-      )
-    },
-  },
-  {
-    org: 'Coc Coc',
-    url: 'https://coccoc.com/en',
-    logo: '/static/images/coc-coc-logo.png',
-    start: 'May 2020',
-    end: 'Apr 2021',
-    title: 'Frontend Engineer',
-    icon: 'man-technologist',
-    event: 'career-coc-coc',
-    details: () => {
-      return (
-        <ul className="[&>li]:my-2 [&>li]:pl-0">
-          <li>
-            Working on the <strong>#1 web browser & search engine</strong> in{' '}
-            <strong>Viet Nam</strong> (30M+ users)
-          </li>
-          <li>
-            Built{' '}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://coccoc.com/webhp"
-            >
-              Coc Coc's newsfeed
-            </a>
-          </li>
-          <li>Maintained and optimized new tab's widgets and performance</li>
-        </ul>
-      )
-    },
-  },
-  {
-    org: 'BraveBits',
-    url: 'https://bravebits.co/',
+    org: 'City Union Bank',
+    url: 'https://www.cityunionbank.com/',
     logo: '/static/images/bb-logo.png',
-    start: 'Aug 2018',
-    end: 'Apr 2020',
-    title: 'Fullstack Developer',
-    icon: 'man-technologist',
-    event: 'career-bravebits',
+    start: 'Nov 2024',
+    end: 'Mar 2025',
+    title: 'Senior Associate',
+    icon: 'briefcase',
+    event: 'career-cub',
     details: () => {
       return (
         <ul className="[&>li]:my-2 [&>li]:pl-0">
-          <li>Working on the #1 Page Builder app on Shopify app store</li>
-          <li>Built Pagefly's Analytics APIs</li>
           <li>
-            Built{' '}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://github.com/sellersmith/slider-x"
-            >
-              Slider-x
-            </a>
+            Managed and retained a portfolio of retail customers by providing
+            personalized banking solutions and relationship support.
+          </li>
+          <li>
+            Achieved deposit growth and cross-sell targets by identifying
+            customer needs and offering suitable financial products.
           </li>
         </ul>
       )
     },
   },
   {
-    org: 'MindX - Technology School',
-    url: 'https://mindx.edu.vn/',
-    logo: '/static/images/mindx-logo.jpeg',
-    start: 'May 2017',
-    end: 'Jul 2018',
-    title: 'Instructor and Developer',
+    org: 'Genpact',
+    url: 'https://www.genpact.com/',
+    logo: '/static/images/bb-logo.png',
+    start: 'Jan 2024',
+    end: 'Jul 2024',
+    title: 'Management Trainee (Operations Intern)',
     icon: 'man-technologist',
-    event: 'career-mindx',
+    event: 'career-genpact',
     details: () => {
       return (
         <ul className="[&>li]:my-2 [&>li]:pl-0">
           <li>
-            Built{' '}
-            <a target="_blank" rel="noopener noreferrer" href="http://lok.vn/">
-              Love of Knowledge
-            </a>{' '}
-            (Front-end Developer)
+            Assisted in project execution by tracking timelines, deliverables,
+            and team resource allocation.
           </li>
           <li>
-            Built{' '}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://hta218.github.io/get-a-room-api-docs/"
-            >
-              Room Finder APIs
-            </a>{' '}
-            (Back-end Developer)
+            Enhanced Excel/Power BI dashboards to monitor operational KPIs and
+            highlight process improvement opportunities.
           </li>
           <li>
-            Built{' '}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://github.com/hta218/Travel_Egypt"
-            >
-              Travel Egypt
-            </a>{' '}
-            - a picture puzzle game made by pygame (Python)
-          </li>
-          <li>
-            Mentored Python fundamentals and Python web development for newbies
+            Delivered data-backed insights to leadership for performance review
+            and decision-making.
           </li>
         </ul>
       )
     },
   },
   {
-    org: 'Hanoi University of Science and Technology',
-    url: 'https://www.hust.edu.vn/en/',
-    logo: '/static/images/hust-logo.png',
-    start: 'Sep 2013',
-    end: 'Feb 2019',
-    title: 'Student at SEEE (School of Electrical & Electronic Engineering)',
+    org: 'Startnet',
+    url: 'https://startnet.in/',
+    logo: '/static/images/bb-logo.png',
+    start: 'Mar 2023',
+    end: 'Dec 2023',
+    title: 'Business Development',
+    icon: 'man-technologist',
+    event: 'career-startnet',
+    details: () => {
+      return (
+        <ul className="[&>li]:my-2 [&>li]:pl-0">
+          <li>
+            Led digital enablement initiatives to streamline internal workflows
+            and improve customer engagement.
+          </li>
+          <li>
+            Executed SEO, SEM, and social media campaigns to support brand
+            visibility and lead acquisition.
+          </li>
+          <li>
+            Managed the sales funnel from lead generation to closing, achieving
+            monthly digital sales targets.
+          </li>
+        </ul>
+      )
+    },
+  },
+  {
+    org: 'Sona College of Technology',
+    url: 'https://www.sonatech.ac.in/',
+    logo: '/static/images/bb-logo.png',
+    start: 'Jul 2022',
+    end: 'Jul 2024',
+    title: 'MBA',
     icon: 'man-student',
-    event: 'career-hust',
+    event: 'career-sona',
     details: () => {
       return (
         <ul className="[&>li]:my-2 [&>li]:pl-0">
-          <li>
-            Get a good degree at{' '}
-            <strong>School of Electrical & Electronic Engineering</strong>
-          </li>
-          <li>
-            And yeah! My major subject was{' '}
-            <strong>Electronics and Telecommunications</strong>, but I couldn't
-            find interest in that field. So I learned Software Engineering
-            instead, and became what I am today.
-          </li>
+          <li>MBA, 8.02/10 – Sona College of Technology, Salem</li>
         </ul>
       )
     },
